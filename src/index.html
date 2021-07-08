@@ -33,7 +33,7 @@
 				MID<input type="text" id="midd_spell"><input type="checkbox" id="mid5"/> <br>
 				<input type="text" id="midf_spell"><br>
 				ADC<input type="text"id="adcd_spell"><input type="checkbox" id="adc5"/> <br>
-				<input type="text" id="adcdf_spell"><br>
+				<input type="text" id="adcf_spell"><br>
 				SUP<input type="text" id="supd_spell"><input type="checkbox" id="sup5"/> <br>
 				<input type="text" id="supf_spell"><br>
 			</div>
@@ -41,6 +41,7 @@
 		<script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script  type="text/javascript" >
 			var spell_key;
+			var idx = 1;
 			var topd_interval,topf_interval,jgd_interval,jgf_interval,midd_interval,midf_interval,adcd_interval,adcf_interval, supd_interval, supf_interval;
 			$(document).ready(function(){
 				$('.outgame').hide();
@@ -68,18 +69,108 @@
 						supf_spell : $('#sup5').prop('checked') ? ($('#supf_spell').val()*1)*0.95 : $('#supf_spell').val()*1,
 					}
 					spell_key = $(this);
-					clearInterval(window[spell_key.attr('key')+"_interval"]);
-
-					window[spell_key.attr('key')+"_interval"] = setInterval(function(){
-						console.log(window[spell_key.attr('key')+"_spell"]);
-						arr[spell_key.attr('key')+"_spell"] -= 1;
-						console.log(`#key-${spell_key.attr('key')}`);
-						$(`#key-${spell_key.attr('key')}`).text(arr[spell_key.attr('key')+"_spell"]);
-						if(arr[spell_key.attr('key')+"_spell"] <= 0){
-							$(`#key-${spell_key.attr('key')}`).innerText = 'D';
-							clearInterval(window[spell_key.attr('key')+"_interval"]);
-						}
-					}, 1000);
+					if(spell_key.attr('key') == "topd"){
+						clearInterval(topd_interval);
+						topd_interval = setInterval(function(){
+							arr["topd_spell"] -= 1;
+							console.log(`#key-${spell_key.attr('key')}`);
+							$(`#key-topd`).text(arr["topd_spell"]);
+							if(arr["topd_spell"] <= 0){
+								$(`#key-topd`).text('D');
+								clearInterval(topd_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "topf"){
+						topf_interval = setInterval(function(){
+							arr["topf_spell"] -= 1;
+							$(`#key-topf`).text(arr["topf_spell"]);
+							if(arr["topf_spell"] <= 0){
+								$(`#key-topf`).text('F');
+								clearInterval(topf_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "jgd"){
+						clearInterval(jgd_interval);
+						jgd_interval = setInterval(function(){
+							arr["jgd_spell"] -= 1;
+							console.log(`#key-${spell_key.attr('key')}`);
+							$(`#key-jgd`).text(arr["jgd_spell"]);
+							if(arr["jgd_spell"] <= 0){
+								$(`#key-jgd`).text('D');
+								clearInterval(jgd_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "jgf"){
+						jgf_interval = setInterval(function(){
+							arr["jgf_spell"] -= 1;
+							$(`#key-jgf`).text(arr["jgf_spell"]);
+							if(arr["jgf_spell"] <= 0){
+								$(`#key-jgf`).text('F');
+								clearInterval(jgf_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "midd"){
+						clearInterval(midd_interval);
+						midd_interval = setInterval(function(){
+							arr["midd_spell"] -= 1;
+							console.log(`#key-${spell_key.attr('key')}`);
+							$(`#key-midd`).text(arr["midd_spell"]);
+							if(arr["midd_spell"] <= 0){
+								$(`#key-midd`).text('D');
+								clearInterval(midd_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "midf"){
+						midf_interval = setInterval(function(){
+							arr["midf_spell"] -= 1;
+							$(`#key-midf`).text(arr["midf_spell"]);
+							if(arr["midf_spell"] <= 0){
+								$(`#key-midf`).text('F');
+								clearInterval(midf_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "adcd"){
+						clearInterval(adcd_interval);
+						adcd_interval = setInterval(function(){
+							arr["adcd_spell"] -= 1;
+							console.log(`#key-${spell_key.attr('key')}`);
+							$(`#key-adcd`).text(arr["adcd_spell"]);
+							if(arr["adcd_spell"] <= 0){
+								$(`#key-adcd`).text('D');
+								clearInterval(adcd_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "adcf"){
+						adcf_interval = setInterval(function(){
+							arr["adcf_spell"] -= 1;
+							$(`#key-adcf`).text(arr["adcf_spell"]);
+							if(arr["adcf_spell"] <= 0){
+								$(`#key-adcf`).text('F');
+								clearInterval(adcf_interval);
+							}
+						}, 1000);
+					}else if(spell_key.attr('key') == "supd"){
+						clearInterval(supd_interval);
+						supd_interval = setInterval(function(){
+							arr["supd_spell"] -= 1;
+							console.log(`#key-${spell_key.attr('key')}`);
+							$(`#key-supd`).text(arr["supd_spell"]);
+							if(arr["supd_spell"] <= 0){
+								$(`#key-supd`).text('D');
+								clearInterval(supd_interval);
+							}
+						}, 1000);
+					} else if(spell_key.attr('key') == "supf"){
+						supf_interval = setInterval(function(){
+							arr["supf_spell"] -= 1;
+							$(`#key-supf`).text(arr["supf_spell"]);
+							if(arr["supf_spell"] <= 0){
+								$(`#key-supf`).text('F');
+								clearInterval(supf_interval);
+							}
+						}, 1000);
+					}
+						
 				})
 			})
 	

@@ -1,0 +1,79 @@
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+  /* background: #222; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.box-container {
+  flex-wrap: wrap;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+:root {
+  --skew-value: -20deg;
+}
+
+.box-container .ingame > div {
+  width: 80px;
+  float: left;
+  padding: 4px 3px 14px 3px;
+  text-align: center;
+  margin: 3px;
+  font-weight: 500;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px black, 0 0 1px inset black;
+  box-sizing: border-box;
+}
+
+.box-container > div#nonekey {
+  box-shadow: none;
+  border: none;
+}
+
+.box-container > div#key-space {
+  min-width: 240px;
+}
+
+#key-leftmousebutton {
+  padding: 10px 30px 10px 10px;
+  clip-path: ellipse(100% 100% at 100% 100%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px black, 0 0 1px inset black;
+}
+
+#key-rightmousebutton {
+  padding: 10px 30px 10px 10px;
+  clip-path: ellipse(100% 100% at 0% 100%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px black, 0 0 1px inset black;
+}
+
+#mousebody {
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px black, 0 0 1px inset black;
+  clip-path: polygon(100% 0, 75% 100%, 25% 100%, 0 0);
+
+  height: 150px;
+  width: 185px;
+}
+
+.keydown,
+.mouse > .row > div.keydown {
+  background-color: #ffeb3b6b;
+  -webkit-text-stroke: 1px rgb(0 0 0 / 80%);
+}

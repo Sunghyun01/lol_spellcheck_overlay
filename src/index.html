@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<meta charset="UTF-8" />
+		<title>CPU Monitor</title>
+		<link rel="stylesheet" href="index.css" />
+		<script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="app.js"></script>
+	</head>
+	<body>
+		<div class="box-container">
+			<div style="width: 100%;">
+				<div class="status" menu="1" style="width: 70px; float: left;text-align: center;">겜중</div>
+				<div class="status" menu="2" style="width: 70px; float: left;text-align: center;">설정</div>
+			</div>
+			<div class="ingame" style="width: 100%;">
+				<div id="key-topd" class="spell-key" key="topd">D</div>
+				<div id="key-topf" class="spell-key" key="topf">F</div>
+				<div id="key-jgd" class="spell-key" key="jgd">D</div>
+				<div id="key-jgf" class="spell-key" key="jgf">F</div>
+				<div id="key-midd" class="spell-key" key="midd">D</div>
+				<div id="key-midf" class="spell-key" key="midf">F</div>
+				<div id="key-adcd" class="spell-key" key="adcd">D</div>
+				<div id="key-adcf" class="spell-key" key="adcf">F</div>
+				<div id="key-supd" class="spell-key" key="supd">D</div>
+				<div id="key-supf" class="spell-key" key="supf">F</div>
+			</div>
+			<div class="outgame">
+				TOP<input type="text" id="topd_spell"><input type="checkbox" id="top5"/> <br>
+				<input type="text" id="topf_spell"><br>
+				JG<input type="text" id="jugd_spell"><input type="checkbox" id="jg5"/> <br>
+				<input type="text" id="jugf_spell"><br>
+				MID<input type="text" id="midd_spell"><input type="checkbox" id="mid5"/> <br>
+				<input type="text" id="midf_spell"><br>
+				ADC<input type="text"id="adcd_spell"><input type="checkbox" id="adc5"/> <br>
+				<input type="text" id="adcdf_spell"><br>
+				SUP<input type="text" id="supd_spell"><input type="checkbox" id="sup5"/> <br>
+				<input type="text" id="supf_spell"><br>
+			</div>
+		</div>
+		<script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script  type="text/javascript" >
+			var spell_key;
+			var topd_interval,topf_interval,jgd_interval,jgf_interval,midd_interval,midf_interval,adcd_interval,adcf_interval, supd_interval, supf_interval;
+			$(document).ready(function(){
+				$('.outgame').hide();
+				$(".status").click(function(){
+					if($(this).attr("menu") == 1){
+						$('.ingame').show();
+						$('.outgame').hide();
+					}else{
+						$('.ingame').hide();
+						$('.outgame').show();
+					}
+				})
+				
+				$('.spell-key').click(function(){
+					var arr = {
+						topd_spell : $('#top5').prop('checked') ? ($('#topd_spell').val()*1)*0.95 : ($('#topd_spell').val()*1),
+						topf_spell : $('#top5').prop('checked') ? ($('#topf_spell').val()*1)*0.95 : ($('#topf_spell').val()*1),
+						jgd_spell : $('#jg5').prop('checked') ? ($('#jugd_spell').val()*1)*0.95 : $('#jugd_spell').val()*1,
+						jgf_spell : $('#jg5').prop('checked') ? ($('#jugf_spell').val()*1)*0.95 : $('#jugf_spell').val()*1,
+						midd_spell : $('#mid5').prop('checked') ? ($('#midd_spell').val()*1)*0.95 : $('#midd_spell').val()*1,
+						midf_spell : $('#mid5').prop('checked') ? ($('#midf_spell').val()*1)*0.95 : $('#midf_spell').val()*1,
+						adcd_spell : $('#adc5').prop('checked') ? ($('#adcd_spell').val()*1)*0.95 : $('#adcd_spell').val()*1,
+						adcf_spell : $('#adc5').prop('checked') ? ($('#adcf_spell').val()*1)*0.95 : $('#adcf_spell').val()*1,
+						supd_spell : $('#sup5').prop('checked') ? ($('#supd_spell').val()*1)*0.95 : $('#supd_spell').val()*1,
+						supf_spell : $('#sup5').prop('checked') ? ($('#supf_spell').val()*1)*0.95 : $('#supf_spell').val()*1,
+					}
+					spell_key = $(this);
+					clearInterval(window[spell_key.attr('key')+"_interval"]);
+
+					window[spell_key.attr('key')+"_interval"] = setInterval(function(){
+						console.log(window[spell_key.attr('key')+"_spell"]);
+						arr[spell_key.attr('key')+"_spell"] -= 1;
+						console.log(`#key-${spell_key.attr('key')}`);
+						$(`#key-${spell_key.attr('key')}`).text(arr[spell_key.attr('key')+"_spell"]);
+						if(arr[spell_key.attr('key')+"_spell"] <= 0){
+							$(`#key-${spell_key.attr('key')}`).innerText = 'D';
+							clearInterval(window[spell_key.attr('key')+"_interval"]);
+						}
+					}, 1000);
+				})
+			})
+	
+		</script>
+	</body>
+</html>

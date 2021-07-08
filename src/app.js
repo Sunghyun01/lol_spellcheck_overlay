@@ -1,11 +1,3 @@
-function keydown(key) {
-	//const keycap = document.querySelector(`#key-${key}`);
-}
-
-function keyup(key) {
-	//const keycap = document.querySelector(`#key-${key}`);
-}
-
 function documentStat(value){
 	var elems = document.getElementsByClassName('box-container');
 	for (var i=0;i<elems.length;i+=1){
@@ -35,27 +27,15 @@ function run() {
 		default:
 			break;
 		}
-
-		const key = String.fromCharCode(data);
-		keydown(key);
 	});
 
 	ipcRenderer.on('keyup', (event, data) => {
 		switch (data) {
 			case 9:
 				return documentStat('none');
-			case 32:
-				return keyup('space');
-			case 160:
-				return keyup('shift');
-			case 162:
-				return keyup('ctrl');
 			default:
 				break;
 		}
-
-		const key = String.fromCharCode(data);
-		keyup(key);
 	});
 
 	ipcRenderer.on('mousedown', (event, data) => {

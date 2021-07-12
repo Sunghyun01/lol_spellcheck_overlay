@@ -13,9 +13,9 @@ npm start
 "TAB" 키를 누르면 오버레이가 활성화됩니다.  
 이때 스펠 위치를 누르면 알아서 타이머 돌아갑니다.  
 
-#  :sunny: 코드리뷰 & 피드벡  
+#  :sunny: 코드리뷰 & 피드백 
 ### 그런거 안받습니다 :angry: 
 ~~차피 다야가면 안쓸거임 ㅎㅎ~~
 
-# 후기
+# 후기 
 ![log](https://user-images.githubusercontent.com/37784262/125232202-1752fe00-e317-11eb-84f4-6d65b8dbdfc3.jpg)

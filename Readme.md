@@ -16,3 +16,6 @@ npm start
 #  :sunny: 코드리뷰 & 피드벡  
 ### 그런거 안받습니다 :angry: 
 ~~차피 다야가면 안쓸거임 ㅎㅎ~~
+
+# 후기
+![log](https://user-images.githubusercontent.com/37784262/125232202-1752fe00-e317-11eb-84f4-6d65b8dbdfc3.jpg)
